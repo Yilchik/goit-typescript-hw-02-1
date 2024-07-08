@@ -3,7 +3,11 @@ import css from "./SearchBar.module.css";
 import toast, { Toaster } from "react-hot-toast";
 import * as Yup from "yup";
 
-function SearchBar({ onSubmit }) {
+interface SearchBarProps {
+  onSubmit: (query: string) => void;
+}
+
+const SearchBar: React.FC<SearchBarProps> = ({ onSubmit }) => {
   return (
     <header className={css.container}>
       <Toaster position="top-right" />
@@ -38,6 +42,6 @@ function SearchBar({ onSubmit }) {
       </Formik>
     </header>
   );
-}
+};
 
 export default SearchBar;
